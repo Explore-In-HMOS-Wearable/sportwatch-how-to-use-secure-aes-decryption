@@ -1,0 +1,7 @@
+<div class="container">
+    <text class="title">Encrypted Data: 18, 27, 146, 85, 10, 42, 47, 216, 60, 107, 89, 157</text>
+    <text class="title">
+        DecryptedText Text: \n{{ decryptedText }}
+    </text>
+    <text if="{{ error }}" class="error-title">{{ errorMessage }}</text>
+</div>
