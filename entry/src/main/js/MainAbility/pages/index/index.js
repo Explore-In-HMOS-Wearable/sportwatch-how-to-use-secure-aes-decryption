@@ -8,16 +8,15 @@ export default {
     },
     onInit() {
         const encryptedData = new Uint8Array([18, 27, 146, 85, 10, 42, 47, 216, 60, 107, 89, 157]);
-        const key = new Uint8Array(16).fill(0xAA);
+        const dummyKey = new Uint8Array(16).fill(0xAA);
         const iv = new Uint8Array(16).fill(0x55);
 
-        console.log("encryptedData " + encryptedData)
-        console.log("key " + key)
-        console.log("iv " + iv)
+        console.info(`encryptedData ${encryptedData}`);
+        console.info(`key ${dummyKey}`);
+        console.info(`iv ${iv}`);
+        const decrypredData = this.aesCtrDecode('keyalias', dummyKey, encryptedData, iv)
 
-        const decrypredData = this.aesCtrDecode("keyalias", key, encryptedData, iv)
-
-        console.log("decrypted text: " + this.byteArrayToString(decrypredData))
+        console.info(`decrypted text: ${this.byteArrayToString(decrypredData)}`);
         this.decryptedText = this.byteArrayToString(decrypredData)
     },
 
@@ -58,7 +57,7 @@ export default {
 
         huks.importKeyItem(keyAlias, importOptions, (err, data) => {
             if (err) {
-                console.error("Key import key item error." + JSON.stringify(err))
+                console.error(`Key import key item error. ${JSON.stringify(err)}`);
                 this.errorMessage = JSON.stringify(err)
                 this.error = true
                 return
@@ -77,7 +76,7 @@ export default {
 
             huks.initSession(keyAlias, initOptions, (initErr, sessionData) => {
                 if (initErr) {
-                    console.error("Key init session err" + JSON.stringify(initErr))
+                    console.error(`Key init session err ${JSON.stringify(initErr)}`);
                     this.errorMessage = JSON.stringify(initErr)
                     this.error = true
                 }
@@ -90,14 +89,14 @@ export default {
 
                 huks.finishSession(handle, finishOptions, (finishErr, finishData) => {
                     if (finishErr) {
-                        console.error("Decrypt err" + finishErr)
+                        console.error(`Decrypt err ${finishErr}`);
                         this.errorMessage = JSON.stringify(finishErr)
                         this.error = true
                         return;
                     }
 
                     if (!finishData) {
-                        console.error("FinishData err" + finishData)
+                        console.error(`FinishData err ${finishData}`);
                         this.errorMessage = JSON.stringify(finishData)
                         this.error = true
                         return;
@@ -107,13 +106,14 @@ export default {
                 })
             })
         })
-        console.log("decrypred Data Uint8Array:" + decryptedData);
+        console.error(`Decrypred Data Uint8Array: ${decryptedData}`);
+
         return decryptedData;
     },
 
     byteArrayToString(byteArray) {
-        var string = '';
-        for (var i = 0; i < byteArray.length; i++) {
+        let string = '';
+        for (let i = 0; i < byteArray.length; i++) {
             string = string + String.fromCharCode(byteArray[i])
         }
         return string
