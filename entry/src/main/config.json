@@ -1,6 +1,6 @@
 {
   "app": {
-    "bundleName": "com.hmosdemos.aesctrdecryption",
+    "bundleName": "com.hmosdemos.lite_wearable.how_to_use_secure_aes_decryption",
     "vendor": "hmosdemos",
     "version": {
       "code": 1000000,

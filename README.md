@@ -1,25 +1,24 @@
 > **Note:** To access all shared projects, get information about environment setup, and view other guides, please visit [Explore-In-HMOS-Wearable Index](https://github.com/Explore-In-HMOS-Wearable/hmos-index).
 
-# **AES Decryption Demo using HUKS with (Sport)Lite Wearable**
-**A HarmonyOS demo showcasing secure AES decryption using HUKS framework**
+# AES Decryption Demo using HUKS with (Sport)Lite Wearable
+A HarmonyOS demo showcasing secure AES decryption using HUKS framework
 
-# **Preview**
+# Preview
 <div style="display: flex; gap: 5px;">
-  <img src="./screenshots/preview_1.png" width="25%">
+  <img src="./screenshots/preview_1.png" width="25%" alt="Demo Preview 1">
 </div>
 
-# **Use Cases**
+# Use Cases
 - Secure decryption of encrypted byte arrays using AES CTR 128 NoPadding
 - Cryptographic key import and secure session management via HUKS
 - Data conversion between `Uint8Array` and text formats
 
-# **Tech Stack**
+# Tech Stack
 - **Languages**:  JavaScript (Huawei LiteWearable)
 - **Tools**: Huawei DevEco Studio IDE 5.1.1.840
-- **Libraries**: Huks
+- **Libraries**: [`@ohos.security.huks`](https://developer.huawei.com/consumer/en/doc/harmonyos-references/js-apis-huks)
 
-
-# **Directory Structure**
+# Directory Structure
 ```
 entry/src/main/js/MainAbility
 ├───i18n
@@ -40,8 +39,5 @@ entry/src/main/js/MainAbility
 - Huawei Sport (Lite) D2
 - Huawei Sport (Lite) Ultimate
 
-# Documentation
-- [Huawei HUKS Overview](https://developer.huawei.com/consumer/en/doc/harmonyos-references/js-apis-huks)
-
-# **License (MIT)**
+# LICENSE
 **AES Decryption Demo** is distributed under the terms of the MIT License. See the [LICENSE](LICENSE) file for more information.
